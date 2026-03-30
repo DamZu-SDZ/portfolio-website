@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail | DamZu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root { 
+            --bg-dark: #0a0b10;
+            --glass-bg: rgba(20, 22, 30, 0.8);
+            --neon-blue: #00d2ff;
+            --text-bright: #ffffff; /* Tulisan putih terang */
+            --text-dim: #cbd5e0;    /* Tulisan kelabu lembut tapi jelas */
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-bright); 
+            padding-top: 80px; 
+        }
+
+        h1, h2, h5, .navbar-brand { font-family: 'Space Grotesk', sans-serif; }
+
+        .navbar { 
+            background: rgba(10, 11, 16, 0.9) !important; 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-header { 
+            padding: 60px 0; 
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1), transparent);
+        }
+        
+        .card-detail { 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 25px; 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(15px);
+            margin-bottom: 50px; 
+            overflow: hidden; 
+        }
+
+        .img-display { 
+            background: rgba(0,0,0,0.4); 
+            padding: 30px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .img-display img { 
+            max-width: 100%; 
+            border-radius: 15px; 
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+        }
+        
+        /* Baiki kontras tulisan di sini */
+        .text-muted { 
+            color: var(--text-dim) !important; 
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .badge-tech { 
+            background: rgba(0, 210, 255, 0.15); 
+            color: var(--neon-blue); 
+            border: 1px solid var(--neon-blue);
+            font-weight: bold; 
+            padding: 6px 16px; 
+            border-radius: 50px; 
+            font-size: 0.75rem; 
+            margin-right: 8px; 
+            display: inline-block; 
+            margin-bottom: 10px;
+        }
+
+        .section-title { 
+            color: var(--neon-blue);
+            border-left: 4px solid var(--neon-blue); 
+            padding-left: 15px; 
+            margin-bottom: 20px; 
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .btn-return { color: var(--neon-blue); text-decoration: none; font-weight: bold; }
+        .btn-return:hover { color: white; text-shadow: 0 0 10px var(--neon-blue); }
+
+        footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 0; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">DAM<span style="color: var(--neon-blue);">ZU</span></a>
+            <div class="navbar-nav ms-auto">
+                <a class="btn-return" href="index.html"><i class="bi bi-arrow-left"></i> RETURN TO TERMINAL</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="project-header text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-white">LAB DOCUMENTATION</h1>
+            <p class="text-info" style="letter-spacing: 1px;">Detailed Analysis & System Schematics</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="card-detail">
+            <div class="row g-0">
+                <div class="col-lg-6 img-display">
+                    <div class="text-center">
+                        <h6 class="text-info mb-3 small" style="letter-spacing: 2px;">HARDWARE SCHEMATIC</h6>
+                        <img src="images/circuit_diagram.png" onerror="this.src='https://via.placeholder.com/600x400/111/00d2ff?text=Smart+Locker+Circuit'" alt="Smart Locker Circuit">
+                    </div>
+                </div>
+                <div class="col-lg-6 p-4 p-md-5">
+                    <div class="mb-3">
+                        <span class="badge-tech">ESP32 Core</span>
+                        <span class="badge-tech">MySQL</span>
+                        <span class="badge-tech">C++ Kernel</span>
+                    </div>
+                    <h2 class="fw-bold mb-3 text-white">Smart Locker Protocol</h2>
+                    <p class="text-muted">Sistem loker pintar yang membolehkan kawalan kunci jarak jauh melalui mikropengawal ESP32 yang disambungkan terus ke pangkalan data SQL.</p>
+                    
+                    <h5 class="section-title mt-4">Main Components</h5>
+                    <ul class="text-muted list-unstyled">
+                        <li class="mb-2"><i class="bi bi-cpu text-info me-2"></i> <strong>ESP32 DevKit V1:</strong> Otak pemprosesan sistem.</li>
+                        <li class="mb-2"><i class="bi bi-shield-lock text-info me-2"></i> <strong>Solenoid Lock:</strong> Mekanisme kunci fizikal 12V.</li>
+                        <li class="bi bi-broadcast text-info me-2"></i> <strong>Ngrok Tunnel:</strong> Akses server lokal secara global.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-detail">
+            <div class="row g-0 flex-lg-row-reverse">
+                <div class="col-lg-6 img-display">
+                    <div class="text-center">
+                        <h6 class="text-info mb-3 small" style="letter-spacing: 2px;">TECHNICAL SKETCH</h6>
+                        <img src="images/dronesketch2.jpg" onerror="this.src='https://via.placeholder.com/600x400/111/9d50bb?text=Drone+Technical+Sketch'" alt="Drone Design">
+                    </div>
+                </div>
+                <div class="col-lg-6 p-4 p-md-5">
+                    <div class="mb-3">
+                        <span class="badge-tech">AI Vision</span>
+                        <span class="badge-tech">Thermal Sensing</span>
+                        <span class="badge-tech">IoT</span>
+                    </div>
+                    <h2 class="fw-bold mb-3 text-white">AI Thermal & Gas Drone</h2>
+                    <p class="text-muted">Projek dron pengawasan yang direka untuk mengesan kebocoran gas dan suhu tinggi di kawasan industri menggunakan kecerdasan buatan (AI).</p>
+                    
+                    <h5 class="section-title mt-4">Technical Function</h5>
+                    <ul class="text-muted list-unstyled">
+                        <li class="mb-2"><i class="bi bi-thermometer-high text-info me-2"></i> Pengesan haba real-time untuk punca api.</li>
+                        <li class="mb-2"><i class="bi bi-wind text-info me-2"></i> Sensor MQ-135 untuk kualiti udara.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="text-muted small">&copy; 2026 DAMZU CORE. System Deployed via Firebase Hosting.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DamZu | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #9d50bb;
+            --dark-bg: #05060a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #cbd5e0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* --- THEME TOGGLE --- */
+        .theme-switch {
+            position: fixed; top: 25px; right: 25px; z-index: 1001;
+            cursor: pointer; font-size: 1.2rem; color: var(--primary);
+            background: var(--card-bg); width: 45px; height: 45px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 12px; border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+        .theme-switch:hover { transform: scale(1.1); border-color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(157, 80, 187, 0.1) 0%, transparent 40%);
+        }
+
+        .hero h1 { font-weight: 800; font-size: 4.5rem; letter-spacing: -2px; margin-bottom: 10px; }
+        .hero .role { font-family: 'JetBrains Mono', monospace; color: var(--primary); letter-spacing: 3px; font-weight: 500; }
+        .hero .lead { color: var(--text-muted) !important; max-width: 600px; }
+
+        /* --- PROFILE IMAGE --- */
+        .profile-container { 
+            position: relative; 
+            display: flex;
+            justify-content: center;
+        }
+        .profile-img {
+            width: 320px; 
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 210, 255, 0.3);
+            transition: 0.5s ease-in-out;
+        }
+        .profile-img:hover { 
+            filter: brightness(1.1); 
+            transform: scale(1.03); 
+            box-shadow: 0 0 70px rgba(0, 210, 255, 0.5);
+            border-color: var(--secondary);
+        }
+
+        /* --- SKILLS --- */
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px; border-radius: 24px;
+            transition: 0.4s; text-align: center;
+            height: 100%;
+        }
+        .skill-card:hover { 
+            border-color: var(--primary); 
+            transform: translateY(-10px); 
+            background: rgba(0, 210, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        .skill-card i { font-size: 3rem; display: block; margin-bottom: 15px; color: var(--primary); transition: 0.3s; }
+        .skill-card:hover i { transform: scale(1.2); color: #fff; }
+
+        /* --- PROJECT FILTERING --- */
+        .filter-btn {
+            background: transparent; border: 1px solid var(--glass-border);
+            color: white; padding: 8px 22px; border-radius: 50px; margin: 5px;
+            transition: 0.3s; font-weight: 600; font-size: 0.9rem;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary); color: black; border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+
+        /* --- GLASS CARD --- */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            transition: 0.3s;
+        }
+
+        /* --- TIMELINE STYLE --- */
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--dark-bg);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .btn-primary { 
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none; color: black; font-weight: 700;
+            padding: 12px 30px; border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3); color: black; }
+
+        .contact-input {
+            background: rgba(0, 0, 0, 0.2) !important;
+            border: 1px dashed var(--glass-border) !important;
+            color: white !important;
+            border-radius: 15px !important;
+            transition: 0.3s;
+        }
+        .contact-input:focus {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2) !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* --- CHATBOT STYLE --- */
+        #chat-widget {
+            position: fixed; bottom: 90px; right: 25px; z-index: 1000;
+            width: 320px; background: rgba(10, 11, 16, 0.95); border: 1px solid var(--primary);
+            border-radius: 20px; overflow: hidden; display: none;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+        }
+        .chat-header { background: var(--primary); color: #000; padding: 12px 15px; font-weight: 800; font-family: 'JetBrains Mono'; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { height: 300px; overflow-y: auto; padding: 15px; font-size: 0.85rem; font-family: 'JetBrains Mono'; color: #00d2ff; scrollbar-width: none; }
+        .chat-input { border-top: 1px solid #333; padding: 12px; background: #000; }
+        .chat-input input { background: transparent; border: none; color: white; width: 100%; outline: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .profile-img { width: 250px; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="theme-switch" onclick="toggleTheme()"><i class="bi bi-moon-stars-fill" id="theme-icon"></i></div>
+
+    <div class="chat-trigger" onclick="toggleChat()" style="position: fixed; bottom: 25px; right: 25px; z-index: 999; width: 55px; height: 55px; background: var(--primary); border-radius: 15px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4); transition: 0.3s;">
+        <i class="bi bi-robot fs-3 text-black"></i>
+    </div>
+    
+    <div id="chat-widget">
+        <div class="chat-header">
+            <span><i class="bi bi-terminal-fill me-2"></i>ADAM_BOT v1.0</span>
+            <span style="cursor:pointer" onclick="toggleChat()"><i class="bi bi-x-lg"></i></span>
+        </div>
+        <div class="chat-body" id="chat-content">
+            <div class="mb-2">> Connection established.</div>
+            <div class="mb-2">> System ready. Ask about my 'projects', 'skills' or 'location'.</div>
+        </div>
+        <div class="chat-input"><input type="text" id="user-msg" placeholder="Enter command..." onkeypress="handleChat(event)"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-lg-5 py-3" style="backdrop-filter: blur(15px); background: rgba(5,6,10,0.7); border-bottom: 1px solid var(--glass-border);">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-3" href="#">DamZu<span style="color:var(--primary)">.</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="achievements.html">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-primary px-4 rounded-pill" href="#">Resume <i class="bi bi-download ms-1"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start" data-aos="fade-right">
+                    <p class="role mb-3">> <span id="typed-role"></span></p>
+                    <h1 class="display-2 mb-3">Mohammad Adam Zuhair</h1>
+                    <p class="lead mb-5">Crafting intelligent <span class="text-info fw-bold">IoT ecosystems</span> and high-performance web architectures with precision and purpose.</p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#projects" class="btn btn-primary btn-lg px-4">Explore Projects</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4 rounded-pill">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="zoom-in">
+                    <div class="profile-container">
+                        <img src="images/gambarprofile.jpg" class="profile-img" alt="Adam Zuhair" onerror="this.src='https://via.placeholder.com/320/111/00d2ff?text=Adam'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5 container">
+        <div class="glass-card p-4 p-lg-5" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <div class="p-3 border border-primary border-opacity-25 rounded-4 bg-primary bg-opacity-5">
+                        <h1 class="display-1 fw-800 text-primary mb-0">3.8<span class="fs-2">3</span></h1>
+                        <p class="mono small mb-0 text-secondary">LATEST_CGPA</p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3"><span class="text-primary">></span> Bio_Data</h2>
+                    <p class="text-muted fs-5">
+                        Saya merupakan pelajar matrikulasi dalam bidang **Sains Komputer** yang berpangkalan di Johor. Fokus utama saya adalah mengintegrasikan sistem perkakasan melalui **IoT** dengan seni bina pangkalan data yang efisien.
+                    </p>
+                    <p class="text-muted">
+                        Dengan kepakaran dalam **ESP32 development** dan **SQL Management**, saya membina solusi digital yang mampan. Saya amat meminati persekitaran kerja berasaskan Linux dan berpengalaman mengurus projek dengan metodologi Agile.
+                    </p>
+                    <div class="row g-3 mt-2">
+                        <div class="col-6 col-md-4">
+                            <div class="p-2 border-start border-primary border-3 bg-light bg-opacity-5">
+                                <span class="d-block fw-bold">Johor, MY</span>
+                                <small class="text-secondary mono">BASE_LOC</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="p-2 border-start border-primary border-3 bg-light bg-opacity-5">
+                                <span class="d-block fw-bold">Matriculation</span>
+                                <small class="text-secondary mono">CURRENT_EDU</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold display-6">Technical Arsenal</h2>
+            <div style="width: 50px; height: 4px; background: var(--primary); margin: 15px auto; border-radius: 10px;"></div>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3" data-aos="zoom-in"><div class="skill-card"><i class="bi bi-cpu"></i><h5>IoT & Embedded</h5><p class="small text-secondary">ESP32, Arduino, Sensors</p></div></div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="skill-card"><i class="bi bi-database"></i><h5>Backend</h5><p class="small text-secondary">MySQL, PHP, XAMPP</p></div></div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="skill-card"><i class="bi bi-terminal"></i><h5>Dev Tools</h5><p class="small text-secondary">Linux, Git, Python</p></div></div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="skill-card"><i class="bi bi-layers"></i><h5>Frontend</h5><p class="small text-secondary">Bootstrap, CSS3, UI/UX</p></div></div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5 container">
+        <h2 class="text-center fw-bold mb-5 display-6">Mission Records</h2>
+        <div class="text-center mb-5">
+            <button class="filter-btn active" onclick="filterProjects('all')">All Units</button>
+            <button class="filter-btn" onclick="filterProjects('iot')">IoT Systems</button>
+            <button class="filter-btn" onclick="filterProjects('web')">Web Protocols</button>
+        </div>
+        <div class="row g-4" id="project-container">
+            <div class="col-md-6 project-item iot" data-aos="fade-up">
+                <div class="glass-card h-100 overflow-hidden border-0 shadow-lg">
+                    <img src="images/smartlocker.jpg" class="w-100" style="height:280px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/600x400/111/00d2ff?text=Smart+Locker'">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 class="fw-bold mb-0">Smart Locker Protocol</h4>
+                            <span class="badge bg-info text-dark">IoT</span>
+                        </div>
+                        <p class="text-secondary small">ESP32-based locker system with QR scanners and MySQL real-time logging.</p>
+                        <hr class="opacity-10">
+                        <a href="project-locker.html" class="btn btn-outline-info btn-sm rounded-pill px-3">ACCESS MODULE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 project-item iot" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card h-100 overflow-hidden border-0 shadow-lg">
+                    <img src="images/droneinnovation.jpg" class="w-100" style="height:280px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/600x400/111/9d50bb?text=Thermal+Drone'">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 class="fw-bold mb-0">AI Thermal Drone</h4>
+                            <span class="badge bg-secondary text-white">Hardware</span>
+                        </div>
+                        <p class="text-secondary small">Autonomous aerial unit equipped with thermal vision for search and rescue simulations.</p>
+                        <hr class="opacity-10">
+                        <a href="project-drone.html" class="btn btn-outline-info btn-sm rounded-pill px-3">ACCESS MODULE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5 container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold display-6">Operational History</h2>
+            <div style="width: 50px; height: 4px; background: var(--secondary); margin: 15px auto; border-radius: 10px;"></div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="timeline-container">
+                    <div class="timeline-item" data-aos="fade-left">
+                        <h4 class="fw-bold text-primary">Computer Science Student</h4>
+                        <p class="mono small text-secondary mb-2">2025 - PRESENT | Matriculation</p>
+                        <p class="text-muted">Mendalami algoritma, pembangunan pangkalan data (Database 2 - CD125), dan struktur sistem maklumat. Mengekalkan PNGK terkini 3.83.</p>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                        <h4 class="fw-bold text-info">Project Lead: Smart Attendance System</h4>
+                        <p class="mono small text-secondary mb-2">MARCH - APRIL 2026</p>
+                        <p class="text-muted">Menguruskan kitaran projek Agile selama 2 bulan. Bertanggungjawab dalam reka bentuk skema pangkalan data `member_attendance` dan penyelarasan Sprint.</p>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                        <h4 class="fw-bold text-warning">Lead Developer: Smart Locker Protocol</h4>
+                        <p class="mono small text-secondary mb-2">2025 - 2026</p>
+                        <p class="text-muted">Membangunkan sistem loker pintar menggunakan ESP32 dan pengimbas QR GM861. Mengintegrasikan perkakasan dengan backend PHP/MySQL.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 container">
+        <div class="glass-card p-4 p-lg-5 shadow-lg">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="fw-bold mb-4 display-6 text-info">Establish Connection</h2>
+                    <p class="text-secondary mb-5">Open for collaborations in IoT development and database architecture projects.</p>
+                    <div class="d-flex flex-column gap-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle border border-primary border-opacity-25"><i class="bi bi-envelope text-primary fs-4"></i></div>
+                            <div><p class="mb-0 small text-secondary mono">> EMAIL</p><p class="mb-0 fw-bold">mohammadadamzuhair@gmail.com</p></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle border border-primary border-opacity-25"><i class="bi bi-geo-alt text-primary fs-4"></i></div>
+                            <div><p class="mb-0 small text-secondary mono">> BASE_LOC</p><p class="mb-0 fw-bold">Johor, Malaysia</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <form action="#">
+                        <div class="row g-4">
+                            <div class="col-md-12">
+                                <label class="form-label small mono text-primary mb-2">> SENDER_NAME</label>
+                                <input type="text" class="form-control contact-input py-3 px-4" placeholder="Enter full name">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label small mono text-primary mb-2">> SENDER_EMAIL</label>
+                                <input type="email" class="form-control contact-input py-3 px-4" placeholder="Enter email address">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small mono text-primary mb-2">> MESSAGE_DATA</label>
+                                <textarea class="form-control contact-input py-3 px-4" rows="4" placeholder="Transmission details..."></textarea>
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary px-5 py-3 w-100 rounded-pill shadow-lg">
+                                    <i class="bi bi-send-fill me-2"></i> Transmit Data Packet
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 text-center">
+        <div class="d-flex justify-content-center gap-4 fs-3 mb-4">
+            <a href="https://github.com/DamZu-SDZ" class="text-secondary"><i class="bi bi-github"></i></a>
+            <a href="https://instagram.com/mhdadmzhr" class="text-secondary"><i class="bi bi-instagram"></i></a>
+            <a href="mailto:mohammadadamzuhair@gmail.com" class="text-secondary"><i class="bi bi-envelope"></i></a>
+        </div>
+        <p class="small text-secondary opacity-50 mono">&copy; 2026 ADAM ZUHAIR. COMPILED WITH PRECISION.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        new Typed('#typed-role', {
+            strings: ['FULLSTACK DEVELOPER', 'IOT ARCHITECT', 'DATABASE SPECIALIST', 'LINUX ENTHUSIAST'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            loop: true
+        });
+
+        function toggleChat() {
+            const chat = document.getElementById('chat-widget');
+            chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'block' : 'none';
+        }
+
+        function handleChat(e) {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('user-msg');
+                const content = document.getElementById('chat-content');
+                const msg = input.value.toLowerCase();
+                content.innerHTML += `<div class="text-white mt-3 fw-bold">> ${input.value}</div>`;
+                let reply = "Access denied. Try commands: 'projects', 'skills', or 'location'.";
+                if(msg.includes('project')) reply = "My core modules are: Smart Locker ESP32 and Thermal Search Drone.";
+                else if(msg.includes('skill')) reply = "Primary skills: C++, PHP, SQL, and IoT Integration.";
+                else if(msg.includes('location')) reply = "Operation base: Johor, Malaysia.";
+                setTimeout(() => {
+                    content.innerHTML += `<div class="text-info mt-1">> ${reply}</div>`;
+                    content.scrollTop = content.scrollHeight;
+                }, 500);
+                input.value = '';
+            }
+        }
+
+        function filterProjects(cat) {
+            const items = document.querySelectorAll('.project-item');
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            items.forEach(i => {
+                if (cat === 'all' || i.classList.contains(cat)) {
+                    i.style.display = 'block';
+                    setTimeout(() => i.style.opacity = '1', 10);
+                } else {
+                    i.style.opacity = '0';
+                    setTimeout(() => i.style.display = 'none', 400);
+                }
+            });
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if(body.style.backgroundColor === 'white') {
+                body.style.backgroundColor = '#05060a';
+                body.style.color = 'white';
+                icon.className = 'bi bi-moon-stars-fill';
+            } else {
+                body.style.backgroundColor = 'white';
+                body.style.color = '#05060a';
+                icon.className = 'bi bi-sun-fill';
+            }
+        }
+    </script>
+</body>
+</html>
