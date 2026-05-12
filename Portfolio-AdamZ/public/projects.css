@@ -1,0 +1,71 @@
+/* ─── PROJECTS ─────────────────────────────── */
+#projects { background: var(--white); }
+html[data-theme="dark"] #projects { background: #10192A; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(55,138,221,0.12); }
+
+.project-thumb {
+  height: 180px;
+  background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-400) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.project-thumb-icon { font-size: 48px; opacity: 0.3; }
+
+.project-thumb-label {
+  position: absolute; bottom: 12px; left: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+}
+
+.project-body { padding: 24px; }
+
+.project-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+
+.project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+
+.tag {
+  background: var(--blue-50);
+  color: var(--blue-800);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.project-links { display: flex; gap: 12px; }
+.project-link {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.project-link:hover { border-color: var(--accent); }
+
+html[data-theme="dark"] .project-card { background: #111927; border-color: #1A2536; }
+html[data-theme="dark"] .project-thumb { opacity: 0.85; }
+html[data-theme="dark"] .tag { background: #0D1E33; color: #B5D4F4; }

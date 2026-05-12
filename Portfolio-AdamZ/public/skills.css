@@ -1,0 +1,51 @@
+/* ─── SKILLS ─────────────────────────────── */
+#skills { background: var(--bg); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.skill-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(55,138,221,0.1); }
+
+.skill-card-icon {
+  width: 44px; height: 44px;
+  background: var(--blue-50);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.skill-card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.skill-item {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.skill-name { font-size: 14px; color: var(--text-muted); }
+
+.skill-bar-wrap {
+  width: 120px; height: 4px;
+  background: var(--gray-100); border-radius: 2px; overflow: hidden;
+}
+.skill-bar {
+  height: 100%; background: var(--accent);
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html[data-theme="dark"] .skill-card { background: #111927; border-color: #1A2536; }

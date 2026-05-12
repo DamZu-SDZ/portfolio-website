@@ -1,0 +1,32 @@
+/* ─── FOOTER ─────────────────────────────── */
+footer {
+  background: var(--blue-900);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 32px 5%;
+  font-size: 14px;
+}
+
+footer a { color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 12px; }
+footer a:hover { color: var(--white); }
+
+.footer-name {
+  font-family: 'DM Serif Display', serif;
+  color: var(--white);
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+html[data-theme="dark"] footer { background: #070D16; }
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .about-grid, .contact-grid, .ach-lead-grid, .resume-wrapper { grid-template-columns: 1fr; gap: 40px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .about-visual { height: 260px; }
+  .hero-stats { gap: 24px; }
+  .hero { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+  .hero-photo, .hero-photo-placeholder { width: 160px; height: 200px; border-radius: 18px; }
+  .resume-download-card { position: static; }
+}

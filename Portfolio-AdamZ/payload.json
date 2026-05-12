@@ -1,0 +1,6 @@
+{
+  "systemInstruction": { "parts": [{ "text": "You are an AI." }] },
+  "contents": [
+    { "role": "user", "parts": [{ "text": "Hi" }] }
+  ]
+}

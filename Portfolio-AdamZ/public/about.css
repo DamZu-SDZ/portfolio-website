@@ -1,0 +1,72 @@
+/* ─── ABOUT ─────────────────────────────── */
+#about { background: var(--white); }
+html[data-theme="dark"] #about { background: #10192A; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual { position: relative; height: 400px; }
+
+.about-card {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.about-card.main {
+  top: 0; left: 0; right: 0;
+  background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+  color: var(--white);
+  height: 200px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.about-card.main .card-name { font-family: 'DM Serif Display', serif; font-size: 28px; letter-spacing: -0.5px; }
+.about-card.main .card-role { font-size: 14px; opacity: 0.7; }
+.about-card.main .card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.about-card.main .card-gpa { font-size: 40px; font-family: 'DM Serif Display', serif; }
+.about-card.main .card-gpa-label { font-size: 12px; opacity: 0.6; margin-bottom: 4px; }
+
+.about-card.skills-mini {
+  bottom: 0; left: 20px; right: 20px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+  padding: 16px 20px;
+}
+
+.chip {
+  background: var(--blue-50);
+  color: var(--blue-800);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.about-tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+
+.role-tag {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  color: var(--blue-800);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.role-tag:hover, .role-tag.active { background: var(--blue-400); color: var(--white); border-color: var(--blue-400); }
+
+.about-text { font-size: 16px; line-height: 1.8; color: var(--text-muted); font-weight: 300; }
+.about-text + .about-text { margin-top: 16px; }
+
+html[data-theme="dark"] .about-card.main { background: linear-gradient(135deg, #0C2340, #185FA5); }
+html[data-theme="dark"] .about-card.skills-mini { background: #111927; border-color: #1A2536; }
+html[data-theme="dark"] .chip { background: #0D1E33; color: #B5D4F4; }
+html[data-theme="dark"] .role-tag { background: #0D1E33; border-color: #1A2536; color: #B5D4F4; }

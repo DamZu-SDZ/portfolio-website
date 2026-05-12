@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammad Adam Zuhair</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#home">Dam<span>Zu</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav_about">Tentang</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Kemahiran</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Projek</a></li>
+      <li><a href="#achievements" data-i18n="nav_ach">Pencapaian</a></li>
+      <li><a href="#resume" data-i18n="nav_resume">Resume</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Hubungi</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnMs" onclick="setLang('ms')">BM</button>
+        <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+      <a href="#contact" class="btn-primary" style="padding:8px 20px;font-size:14px;" data-i18n="nav_hire">Hubungi
+        Saya</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-bigname">Dam<span style="color:var(--accent)">Zu</span></div>
+      <div class="hero-badge" data-i18n="hero_badge">Bersedia untuk peluang baharu</div>
+      <h1 class="hero-title" data-i18n="hero_title_html">Saya bina <em>sistem kukuh</em> yang berprestasi.</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Pelajar Pembangun yang menghasilkan kod bersih dari perkakasan hingga
+        perisian. Mengubah idea kepada penyelesaian nyata yang berfungsi.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary" data-i18n="hero_cta1">Lihat Kerja Saya</a>
+        <a href="#contact" class="btn-ghost" data-i18n="hero_cta2">Hubungi Saya</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">3.75</span><span class="stat-label">CGPA</span></div>
+        <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label" data-i18n="stat_proj">Projek
+            dibina</span></div>
+        <div class="stat-item"><span class="stat-num">MY</span><span class="stat-label" data-i18n="stat_loc">Berasaskan
+            di Malaysia</span></div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="image/gambarprofile.jpg" alt="Profile Picture DamZu" class="hero-photo" />
+      <div class="hero-photo-name">Mohammad Adam Zuhair bin Mohammad Yusuf</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card main">
+          <div>
+            <div class="card-name">DamZu</div>
+            <div class="card-role" data-i18n="card_role">Pelajar Pembangun · Malaysia</div>
+          </div>
+          <div class="card-bottom">
+            <div>
+              <div class="card-gpa-label">CGPA</div>
+              <div class="card-gpa">3.75</div>
+            </div>
+            <div style="text-align:right;color:rgba(255,255,255,.7);font-size:13px;font-weight:300;"
+              data-i18n="about_quote">"Kejuruteraan sebenar adalah tentang<br>fungsi, bukan hype."</div>
+          </div>
+        </div>
+        <div class="about-card skills-mini">
+          <span class="chip">Next.js</span><span class="chip">Firebase</span><span class="chip">Python</span>
+          <span class="chip">ESP32</span><span class="chip">Linux</span><span class="chip">IoT</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-label" data-i18n="about_label">Tentang Saya</div>
+        <h2 class="section-title" data-i18n="about_title">Pelajar. Pembangun. Pembuat.</h2>
+        <div class="about-tag-row">
+          <span class="role-tag active" data-i18n="tag_dev">Pembangun</span>
+          <span class="role-tag" data-i18n="tag_maker">Pembuat</span>
+          <span class="role-tag" data-i18n="tag_hacker">Pengaturcara</span>
+        </div>
+        <p class="about-text" data-i18n="about_p1">Saya seorang pelajar sains komputer dengan GPA 3.75, didorong oleh
+          semangat untuk membina sistem yang benar-benar berfungsi. Pendekatan saya menggabungkan penyelesaian masalah
+          praktikal dengan eksperimen langsung.</p>
+        <p class="about-text" style="margin-top:16px;" data-i18n="about_p2">Saya bekerja merentas pelbagai domain —
+          daripada aplikasi web yang bersih dan cekap hingga peranti IoT dan sistem terbenam. Setiap projek yang saya
+          bina direka untuk berprestasi dengan boleh dipercayai dalam dunia sebenar.</p>
+
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#projects" class="btn-primary" data-i18n="about_btn1">Lihat Projek Saya</a>
+          <a href="#resume" class="btn-ghost" data-i18n="about_btn2">Muat Turun CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label" data-i18n="skills_label">Tumpukan Teknikal</div>
+    <h2 class="section-title" data-i18n="skills_title">Apa yang Saya Gunakan</h2>
+    <p class="section-sub" data-i18n="skills_sub">Gambaran ringkas alatan dan teknologi yang saya gunakan untuk membina
+      produk digital yang teguh.</p>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💻</div>
+        <h3 class="skill-card-title" data-i18n="sk_dev">Pembangun</h3>
+
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js">
+          </div>
+          <div class="sdi-text">
+            <div class="sdi-name">Next.js</div>
+            <div class="sdi-desc" data-i18n="sd_next">Kerangka web untuk bina halaman pantas & skala besar.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"
+              alt="Firebase"></div>
+          <div class="sdi-text">
+            <div class="sdi-name">Firebase</div>
+            <div class="sdi-desc" data-i18n="sd_fire">Pengkalan data awan masa nyata & pengesahan berpusat.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+          </div>
+          <div class="sdi-text">
+            <div class="sdi-name">Python</div>
+            <div class="sdi-desc" data-i18n="sd_py">Skrip automasi & logik analitik data pantas.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+              alt="TypeScript"></div>
+          <div class="sdi-text">
+            <div class="sdi-name">TypeScript</div>
+            <div class="sdi-desc" data-i18n="sd_ts">JavaScript moden dengan sokongan jenis kukuh.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"></div>
+          <div class="sdi-text">
+            <div class="sdi-name">Git</div>
+            <div class="sdi-desc" data-i18n="sd_git">Pengurusan kawalan versi kod pasukan.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🔧</div>
+        <h3 class="skill-card-title" data-i18n="sk_maker">Pembuat</h3>
+
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+              alt="C++"></div>
+          <div class="sdi-text">
+            <div class="sdi-name">C++</div>
+            <div class="sdi-desc" data-i18n="sd_cpp">Bahasa utama untuk pengaturcaraan mikro & tertanam.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">⚡</div>
+          <div class="sdi-text">
+            <div class="sdi-name">ESP32</div>
+            <div class="sdi-desc" data-i18n="sd_esp">Modul IoT mikropengawal dengan integrasi awan & Bluetooth.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">🔌</div>
+          <div class="sdi-text">
+            <div class="sdi-name">Circuitry</div>
+            <div class="sdi-desc" data-i18n="sd_circ">Reka bentuk elektronik fizikal & prototaip breadboard.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">🧠</div>
+          <div class="sdi-text">
+            <div class="sdi-name">Edge AI</div>
+            <div class="sdi-desc" data-i18n="sd_edge">Melatih & mengeksekusi model kecerdasan buatan pada peranti kecil.
+            </div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">📐</div>
+          <div class="sdi-text">
+            <div class="sdi-name">FreeCAD</div>
+            <div class="sdi-desc" data-i18n="sd_cad">Penghasilan spesifikasi CAD mekanikal & bahagian dron pintar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🛡️</div>
+        <h3 class="skill-card-title" data-i18n="sk_hacker">Penggodam</h3>
+
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
+          </div>
+          <div class="sdi-text">
+            <div class="sdi-name">Linux</div>
+            <div class="sdi-desc" data-i18n="sd_lin">Pengelolaan tahap kernel pelayan (server) pengeluaran.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash"></div>
+          <div class="sdi-text">
+            <div class="sdi-name">Bash</div>
+            <div class="sdi-desc" data-i18n="sd_bash">Pengautomasian aliran kerja terminal dan sistem.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">🌐</div>
+          <div class="sdi-text">
+            <div class="sdi-name">Networking</div>
+            <div class="sdi-desc" data-i18n="sd_net">Keselamatan port, sub-netting, dan analisis trafik IP.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">🔒</div>
+          <div class="sdi-text">
+            <div class="sdi-name">OWASP</div>
+            <div class="sdi-desc" data-i18n="sd_owasp">Mengkaji kerentanan tapak web dan melaksanakan piawaian
+              perlindungan.</div>
+          </div>
+        </div>
+        <div class="skill-detail-item">
+          <div class="sdi-icon">🔎</div>
+          <div class="sdi-text">
+            <div class="sdi-name">OSINT</div>
+            <div class="sdi-desc" data-i18n="sd_osint">Penganalisaan serpihan jejak dan pengumpulan sumber bebas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label" data-i18n="proj_label">Kerja Pilihan</div>
+    <h2 class="section-title" data-i18n="proj_title">Projek yang Saya Bina</h2>
+    <p class="section-sub" data-i18n="proj_sub">Pilihan projek yang menyelesaikan masalah sebenar dengan kejuruteraan
+      yang bersih.</p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal" onclick="openProjectModal('mod_rocca', 'image/Rocca Heiwa.jpg')">
+        <div class="project-thumb" style="background: url('image/Rocca Heiwa.jpg') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="proj1_tmb">PROJECT_01</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Rocca Heiwa</h3>
+          <p class="project-desc" data-i18n="p1_desc">Sistem loker keselamatan pintar yang menggunakan integrasi
+            Internet Benda untuk menguruskan akses dan keselamatan.</p>
+          <div class="project-tags"><span class="tag">Ngrok</span><span class="tag">Arduino</span><span
+              class="tag">PhpMyAdmin</span></div>
+          <div class="project-links">
+            <a href="https://github.com/DamZu-SDZ/Rocca-Heiwa.git" target="_blank" rel="noopener" class="project-link"
+              onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="https://roccaheiwa.com" target="_blank" rel="noopener" class="project-link"
+              onclick="event.stopPropagation()">Website ↗</a>
+            <a href="image/CT125_16_P75.pdf" target="_blank" rel="noopener" class="project-link"
+              onclick="event.stopPropagation()" data-i18n="link_report">Laporan Projek ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" onclick="openProjectModal('mod_drone', 'image/Dron Inovasi.jpg')">
+        <div class="project-thumb" style="background: url('image/Dron Inovasi.jpg') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="proj2_tmb">PROJECT_02</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">AI Vision Drone</h3>
+          <p class="project-desc" data-i18n="p2_desc">Dron yang dilengkapi dengan kamera dan sensor untuk mengesan objek
+            dan menghantar data ke papan pemuka IoT masa nyata.</p>
+          <div class="project-tags"><span class="tag">React</span><span class="tag">Firebase</span><span
+              class="tag">ESP32</span><span class="tag">IoT</span></div>
+          <div class="project-links">
+            <a href="image/KMJ_FreeSky_Pengawal Di Langit Guardian Angel.pdf" target="_blank" rel="noopener"
+              class="project-link" onclick="event.stopPropagation()" data-i18n="link_report">Laporan Projek ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" onclick="openProjectModal('mod_att', 'image/Member Attendance System.png')">
+        <div class="project-thumb"
+          style="background: url('image/Member Attendance System.png') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="proj3_tmb">PROJECT_03</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Member Attendance System</h3>
+          <p class="project-desc" data-i18n="p3_desc">Sistem kehadiran pelajar menggunakan website dan database</p>
+          <div class="project-tags"><span class="tag">Next.js</span><span class="tag">Gemini AI</span><span
+              class="tag">Tailwind</span></div>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener" class="project-link" data-i18n="link_web">Website ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-label" data-i18n="ach_label">Pengiktirafan & Peranan</div>
+    <h2 class="section-title" data-i18n="ach_title">Pencapaian & Kepimpinan</h2>
+    <p class="section-sub" data-i18n="ach_sub">Pencapaian yang diraih dan pasukan yang dipimpin sepanjang perjalanan.
+    </p>
+    <div class="projects-grid">
+      <!-- 1. Dronatrix Kebangsaan -->
+      <div class="project-card reveal" onclick="openProjectModal('mod_nat', 'image/Anugerah Drone.jpeg')">
+        <div class="project-thumb"
+          style="background: url('image/Anugerah Drone.jpeg') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="ach1_tmb">SIJIL KEBANGSAAN</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="ach1_t">Dronatrix Kebangsaan</h3>
+          <p class="project-desc" data-i18n="ach1_d">Tempat ke-3 peringkat kebangsaan (Kategori Laporan & Keseluruhan).
+          </p>
+          <div class="project-tags"><span class="tag" data-i18n="tag_ach">Pencapaian</span></div>
+        </div>
+      </div>
+
+      <!-- 2. Dronatrix KMJ -->
+      <div class="project-card reveal" onclick="openProjectModal('mod_kmj', 'image/Team Drone.jpeg')">
+        <div class="project-thumb" style="background: url('image/Team Drone.jpeg') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="ach2_tmb">SIJIL KOLEJ</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="ach2_t">Dronatrix KMJ</h3>
+          <p class="project-desc" data-i18n="ach2_d">Emas kategori Video & Emas Keseluruhan (Sapu bersih).</p>
+          <div class="project-tags"><span class="tag" data-i18n="tag_ach">Pencapaian</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Kelab Bola Sepak -->
+      <div class="project-card reveal" onclick="openProjectModal('mod_soc', 'image/Gambar Bola Juara.jpg')">
+        <div class="project-thumb"
+          style="background: url('image/Gambar Bola Juara.jpg') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="lead1_tmb">SPORT LEADERSHIP</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="lead1_t">Presiden Kelab Bola</h3>
+          <p class="project-desc" data-i18n="lead1_d">Membimbing pasukan menjuarai MSSD Kluang secara rasmi.</p>
+          <div class="project-tags"><span class="tag" data-i18n="tag_lead">Kepimpinan</span></div>
+        </div>
+      </div>
+
+      <!-- 4. Badan Dakwah -->
+      <div class="project-card reveal" onclick="openProjectModal('mod_dak', 'image/Gambar Badar.jpg')">
+        <div class="project-thumb" style="background: url('image/Gambar Badar.jpg') center/cover; position: relative;">
+          <div
+            style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);">
+          </div>
+          <span class="project-thumb-label" style="z-index: 1;" data-i18n="lead2_tmb">SOCIAL LEADERSHIP</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-i18n="lead2_t">AJK Badan Dakwah</h3>
+          <p class="project-desc" data-i18n="lead2_d">Melaksana dan mengurus aktiviti kebajikan & keagamaan sekolah.</p>
+          <div class="project-tags"><span class="tag" data-i18n="tag_lead">Kepimpinan</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="section-label" data-i18n="res_label">Kerjaya & Pendidikan</div>
+    <h2 class="section-title" data-i18n="res_title">Resume / CV</h2>
+    <p class="section-sub" data-i18n="res_sub">Latar belakang, pendidikan, dan pengalaman saya secara ringkas.</p>
+    <div class="resume-layout">
+      <div>
+        <div class="resume-card reveal">
+          <div class="resume-card-title">🎓 <span data-i18n="res_edu">Pendidikan</span></div>
+          <div class="resume-block">
+            <div class="resume-item-title">
+              <a href="http://www.kmj.matrik.edu.my" target="_blank" rel="noopener" class="resume-link">Kolej
+                Matrikulasi Johor <i>↗</i></a>
+            </div>
+            <div class="resume-item-sub" data-i18n="edu1_sub">Aliran Sains Komputer · CGPA 3.75</div>
+            <span class="resume-year">2025 – <span data-i18n="res_now">2026</span></span>
+          </div>
+          <div class="resume-block">
+            <div class="resume-item-title">
+              <a href="http://www.kluanghighschool.edu.my" target="_blank" rel="noopener" class="resume-link">SMK Tinggi
+                Kluang <i>↗</i></a>
+            </div>
+            <div class="resume-item-sub">SPM — 6A 2B 1C</div>
+            <span class="resume-year">2020 – 2024</span>
+          </div>
+        </div>
+        <div class="resume-card reveal">
+          <div class="resume-card-title">💼 <span data-i18n="res_exp">Pengalaman</span></div>
+          <div class="resume-block">
+            <div class="resume-item-title" data-i18n="exp1_t">Pembangun Perisian & Perkakasan — AI Vision Drone</div>
+            <div class="resume-item-desc" data-i18n="exp1_d">Memprogramkan pemproses dan penderia pada modul dron untuk
+              melaksanakan pemantauan objek automatik masa nyata.</div>
+            <span class="resume-year">2024</span>
+          </div>
+          <div class="resume-block">
+            <div class="resume-item-title" data-i18n="exp2_t">Pembangun IoT & Sistem — Rocca Heiwa</div>
+            <div class="resume-item-desc" data-i18n="exp2_d">Membangunkan sistem loker pintar dengan integrasi
+              perkakasan asas IoT dan pangkalan data.</div>
+            <span class="resume-year">2024</span>
+          </div>
+          <div class="resume-block">
+            <div class="resume-item-title" data-i18n="exp3_t">Pembangun Web Moden — Member Attendance System</div>
+            <div class="resume-item-desc" data-i18n="exp3_d">Mereka bentuk aplikasi pangkalan web bersepadu AI untuk
+              merekod dan mengurus data kehadiran ahli di peringkat organisasi.</div>
+            <span class="resume-year">2026</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="resume-pdf-card">
+          <iframe src="image/Adam%20Z%20Resume.pdf" title="Resume Preview"
+            style="width: 100%; height: 350px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; margin-bottom: 16px; background-color: #fff;"></iframe>
+          <h3>DamZu</h3>
+          <p data-i18n="res_pdf_p">Resume lengkap saya tersedia untuk dimuat turun. Ia merangkumi pendidikan,
+            pengalaman, kemahiran dan pencapaian saya.</p>
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <div class="resume-meta-row"><span data-i18n="meta_name">Nama</span><span>DamZu</span></div>
+            <div class="resume-meta-row"><span data-i18n="meta_role">Peranan</span><span
+                data-i18n="meta_role_val">Pelajar Pembangun</span></div>
+            <div class="resume-meta-row"><span data-i18n="meta_loc">Lokasi</span><span>Malaysia</span></div>
+            <div class="resume-meta-row"><span data-i18n="meta_updated">Dikemaskini</span><span>2026</span></div>
+            <div class="resume-meta-row"><span>Status</span><span>● <span data-i18n="meta_status">Bersedia</span></span>
+            </div>
+          </div>
+          <div class="resume-pdf-actions">
+            <!-- Tukar fail Resume_DamZu.pdf di dalam public folder dengan resume anda -->
+            <a href="image/Adam Z Resume.pdf" download="Resume_DamZu.pdf" target="_blank" class="btn-white"
+              data-i18n="res_dl">⬇ Muat Turun PDF</a>
+            <a href="#contact" class="btn-white-ghost" data-i18n="res_contact">Hubungi Saya</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" data-i18n="con_label">Mari Berhubung</div>
+    <h2 class="section-title" data-i18n="con_title">Hubungi Saya</h2>
+    <p class="section-sub" data-i18n="con_sub">Berminat untuk bekerjasama atau sekadar ingin menyapa? Peti masuk saya
+      sentiasa terbuka.</p>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <!-- Tukar kepada email anda -->
+            <div class="contact-info-val">mazmyusuf@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-info-label" data-i18n="con_loc">Lokasi</div>
+            <div class="contact-info-val">Malaysia</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-info-label">Status</div>
+            <div class="contact-info-val" data-i18n="con_status">Bersedia untuk peluang baharu</div>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;">
+          <!-- Tukar URL kepada profil anda -->
+          <a href="https://github.com/DamZu-SDZ" target="_blank" rel="noopener" class="btn-ghost"
+            style="font-size:13px;padding:10px 18px;">GitHub</a>
+          <a href="https://www.linkedin.com/in/mohammad-adam-zuhair-55b941402" target="_blank" rel="noopener"
+            class="btn-ghost" style="font-size:13px;padding:10px 18px;">LinkedIn</a>
+          <a href="https://instagram.com/mhdadmzhr" target="_blank" rel="noopener" class="btn-ghost"
+            style="font-size:13px;padding:10px 18px;">Instagram</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_name">Nama</label>
+            <input type="text" class="form-input" id="fName" placeholder="Nama anda" data-i18n-ph="ph_name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="fEmail" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_msg">Mesej</label>
+            <textarea class="form-input" id="fMsg" placeholder="Ceritakan apa yang sedang anda kerjakan..."
+              data-i18n-ph="ph_msg" required></textarea>
+          </div>
+          <div class="form-success" id="formSuccess"><span data-i18n="form_ok">✅ Mesej berjaya dihantar! Saya akan
+              membalas tidak lama lagi.</span></div>
+          <button type="submit" class="btn-primary" style="width:100%;padding:14px;" data-i18n="form_send">Hantar
+            Mesej</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">DamZu</div>
+    <div style="margin-bottom:16px;">
+      <a href="#about" data-i18n="nav_about">Tentang</a>
+      <a href="#skills" data-i18n="nav_skills">Kemahiran</a>
+      <a href="#projects" data-i18n="nav_projects">Projek</a>
+      <a href="#achievements" data-i18n="nav_ach">Pencapaian</a>
+      <a href="#resume" data-i18n="nav_resume">Resume</a>
+      <a href="#contact" data-i18n="nav_contact">Hubungi</a>
+    </div>
+    <p>© 2026 DamZu. <span data-i18n="footer_built">Dibina dengan HTML, CSS & semangat.</span></p>
+  </footer>
+
+  <!-- CHATBOT -->
+  <button class="chatbot-fab" id="chatFab" data-i18n-title="chat_title" title="Chat dengan Lyia">🤖</button>
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">🤖</div>
+      <div style="flex:1;">
+        <div class="chat-hname" data-i18n="chat_name">Lyia AI</div>
+        <div class="chat-hstatus" data-i18n="chat_online">Dalam talian</div>
+      </div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-bot" id="chatWelcome">👋 Hai! Saya pembantu AI DamZu. Tanya saya apa-apa tentang projek,
+        kemahiran, atau pencapaiannya!</div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Tanya sesuatu..." data-i18n-ph="chat_ph" />
+      <button class="chat-send" id="chatSend">➤</button>
+    </div>
+  </div>
+
+  <script src="js/translations.js?v=11"></script>
+  <script src="js/main.js?v=10"></script>
+  <!-- PROJECT MODAL -->
+  <div class="pm-overlay" id="pmOverlay" onclick="if(event.target===this) closeProjectModal()">
+    <div class="pm-box">
+      <button class="pm-close" onclick="closeProjectModal()">×</button>
+      <img src="" class="pm-img" id="pmImg" alt="Project Cover">
+      <div class="pm-body">
+        <h2 class="pm-title" id="pmTitle">Project Title</h2>
+        <div class="project-tags" id="pmTags" style="margin-bottom:20px;"></div>
+        <div class="pm-desc" id="pmDesc">Description goes here</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
